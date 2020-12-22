@@ -3,10 +3,8 @@ FROM mcr.microsoft.com/dotnet/framework/sdk:4.8
 LABEL maintainer="MS BUILD ENV by leonardo_yu@hotmail.com"
 
 # install chocolatey
-# and scoop
 RUN powershell.exe -Command \
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')); \
-    Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # restart shell to install our staff
 # bin folder is created for storing any custom exe tools. Add it to the PATH env,then we can access exe anywhere.
