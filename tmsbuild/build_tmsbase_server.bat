@@ -19,10 +19,10 @@ set "pwd=%TMP:\=/%"
 docker run --rm -v %pwd%/AppServer:c:/build tmsbuild
 popd
 
-if exist output rclone purge output
+if exist output rd /s /q output
 md output
 xcopy /E /R /Y /Q %TMP%\AppServer\KJTmsAppServer\bin output\KJTmsAppServer\
 xcopy /E /R /Y /Q %TMP%\AppServer\CallServer\bin output\CallServer\
 copy %TMP%\AppServer\build.log output\build.log
-if exist %TMP%\AppServer del /F /S /Q %TMP%\AppServer
+if exist %TMP%\AppServer rd /s /q %TMP%\AppServer
 pause
