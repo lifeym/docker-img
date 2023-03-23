@@ -1,8 +1,0 @@
-FROM lifeym/scoop
-
-SHELL ["powershell", "-Command"]
-RUN scoop install nodejs-lts; \
-    rm $env:USERPROFILE/scoop/cache/*
-RUN npm i -g yarn
-
-CMD ["node"]
